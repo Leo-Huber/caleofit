@@ -35,8 +35,8 @@ body {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   text-align: center;
 }
 
@@ -56,7 +56,7 @@ body {
   height: 5px;
   background-color: #ff2953;
   -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  transform: translateX(-50%);
 }
 
 /*header section*/
@@ -67,12 +67,19 @@ body {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   background-image: url(../images/hero-bg.jpg);
   background-size: cover;
-  background-attachment: fixed;
+  background-attachment: scroll;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+  background-color: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente negro */
+  padding: 10px 0;
 }
+
 
 .sub_page .hero_area {
   height: auto;
@@ -118,7 +125,8 @@ body {
   background-color: #ffffff;
 }
 
-.custom_nav-container.navbar-expand-lg .navbar-nav .nav-item.active a::after, .custom_nav-container.navbar-expand-lg .navbar-nav .nav-item:hover a::after {
+.custom_nav-container.navbar-expand-lg .navbar-nav .nav-item.active a::after,
+.custom_nav-container.navbar-expand-lg .navbar-nav .nav-item:hover a::after {
   display: block;
   background-color: #ff2953;
 }
@@ -138,7 +146,7 @@ a:focus {
 .btn:focus {
   outline: none !important;
   -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 
 .user_option {
@@ -146,8 +154,8 @@ a:focus {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .user_option a {
@@ -171,8 +179,8 @@ a:focus {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   position: relative;
 }
 
@@ -200,17 +208,22 @@ a:focus {
 }
 
 /*end header section*/
+
+
 .slider_section {
   -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+  -ms-flex: 1;
+  flex: 1;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  color: #ffffff;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #0e0d0d;
+  border-color: #ff2953;
+  position: relative;
+  /* Necesario para manejar el posicionamiento */
 }
 
 .slider_section #carouselExampleIndicators {
@@ -219,8 +232,8 @@ a:focus {
 
 .slider_section .row {
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .slider_section .box {
@@ -236,6 +249,8 @@ a:focus {
 .slider_section .detail-box h3 {
   text-transform: uppercase;
   font-weight: bold;
+  color: #ff2953;
+  text-shadow: 2px 2px 4px #000000;
 }
 
 .slider_section .detail-box h2 {
@@ -250,14 +265,44 @@ a:focus {
 
 .slider_section .detail-box p {
   margin-top: 25px;
+  position: relative;
+  /* Para posicionar el fondo semitransparente */
+  display: inline-block;
+  /* Hace que el fondo se ajuste al texto */
+  padding: 10px;
+  z-index: 1;
+  /* Para asegurar que el texto quede por encima del fondo */
+}
+
+/* Fondo semitransparente constante detrás del texto */
+.slider_section .detail-box p::before {
+  content: '';
+  /* Crea el pseudo-elemento */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.7);
+  /* Fondo semitransparente */
+  z-index: -1;
+  /* Asegura que el fondo quede detrás del texto */
+  border-radius: 5px;
+  /* Redondea las esquinas */
+  width: auto;
+  /* Se ajusta al contenido */
+  height: auto;
+  /* Se ajusta al contenido */
+  padding: 10px;
+  /* Añadido para darle espacio */
 }
 
 .slider_section .detail-box a {
   display: inline-block;
   padding: 8px 35px;
-  background-color: transparent;
-  border: 1.5px solid #ffffff;
-  color: #ffffff;
+  background-color: #ff2953; /* Fondo rojo en el botón */
+  border: 1.5px solid #ff2953; /* Borde rojo */
+  color: #000000; /* Texto negro */
   border-radius: 0px;
   -webkit-transition: -webkit-transform 0.3s;
   transition: -webkit-transform 0.3s;
@@ -268,7 +313,7 @@ a:focus {
 }
 
 .slider_section .detail-box a:hover {
-  background-color: #ffffff;
+  background-color: #000000;
   color: #000000;
 }
 
@@ -277,8 +322,8 @@ a:focus {
   margin: 0;
   margin-top: 45px;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .slider_section #carouselExampleIndicators .carousel-indicators li {
@@ -293,6 +338,8 @@ a:focus {
 .slider_section #carouselExampleIndicators .carousel-indicators li.active {
   border: 4px solid #ffffff;
 }
+
+
 
 .us_section {
   background-image: url(../images/us-bg.jpg);
@@ -311,11 +358,11 @@ a:focus {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   text-align: center;
   margin: 25px 10px 0 10px;
 }
@@ -326,11 +373,11 @@ a:focus {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
 .us_section .us_container .box .img-box img {
@@ -362,8 +409,8 @@ a:focus {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   margin-top: 45px;
 }
 
@@ -400,11 +447,11 @@ a:focus {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   text-align: center;
 }
 
@@ -427,8 +474,8 @@ a:focus {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   width: 225px;
   padding: 12px 45px;
   background-color: #ffffff;
@@ -444,21 +491,21 @@ a:focus {
 
 .contact_section .heading_container {
   -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: start;
+  -ms-flex-pack: start;
+  justify-content: start;
 }
 
 .contact_section .heading_container h2::before {
   text-align: left;
   left: 0;
   -webkit-transform: none;
-          transform: none;
+  transform: none;
 }
 
 .contact_section .row {
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .contact_section .img-box img {
@@ -520,8 +567,8 @@ a:focus {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
 }
 
 .info_items .item {
@@ -531,11 +578,11 @@ a:focus {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   text-align: center;
 }
 
@@ -577,6 +624,7 @@ a:focus {
   background-color: #fbfdfd;
   padding: 20px;
   font-weight: 500;
+  margin-top: auto;
 }
 
 .footer_section p {

@@ -29,7 +29,8 @@ $primary1: #ff2953;
 body {
   @include main-font;
   color: #000000;
-  background-color: #ffffff;
+  background-color: #f70c0c;
+  min-height: 100vh;
 }
 
 .layout_padding {
@@ -85,27 +86,36 @@ body {
 /*header section*/
 .hero_area {
   height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   background-image: url(../images/hero-bg.jpg);
   background-size: cover;
-  background-attachment: fixed;
+  background-attachment: scroll;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+  background-color: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente negro */
+  padding: 10px 0;
 }
 
-.sub_page {
-  .hero_area {
-    height: auto;
-  }
 
-  .who_section.layout_padding {
-    padding-top: 0;
-  }
+.sub_page .hero_area {
+  height: auto;
+}
+
+.sub_page .who_section.layout_padding {
+  padding-top: 0;
 }
 
 .hero_area.sub_pages {
   height: auto;
 }
-
 
 .header_section .container-fluid {
   padding-right: 25px;
@@ -116,39 +126,33 @@ body {
   margin: 0 auto;
 }
 
-.custom_nav-container.navbar-expand-lg .navbar-nav .nav-item {
-  .nav-link {
-    margin: 10px 30px;
-    padding: 0;
-    padding-bottom: 3px;
-    color: #ffffff;
-    text-align: center;
-    position: relative;
-    text-transform: uppercase;
-    font-size: 15px;
+.custom_nav-container.navbar-expand-lg .navbar-nav .nav-item .nav-link {
+  margin: 10px 30px;
+  padding: 0;
+  padding-bottom: 3px;
+  color: #ffffff;
+  text-align: center;
+  position: relative;
+  text-transform: uppercase;
+  font-size: 15px;
+}
 
-    &::after {
-      display: none;
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 100%;
-      height: 3px;
-      border-radius: 5px;
-      background-color: $white;
-    }
-  }
+.custom_nav-container.navbar-expand-lg .navbar-nav .nav-item .nav-link::after {
+  display: none;
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 3px;
+  border-radius: 5px;
+  background-color: #ffffff;
+}
 
-  &.active,
-  &:hover {
-    a {
-      &::after {
-        display: block;
-        background-color: $primary1;
-      }
-    }
-  }
+.custom_nav-container.navbar-expand-lg .navbar-nav .nav-item.active a::after,
+.custom_nav-container.navbar-expand-lg .navbar-nav .nav-item:hover a::after {
+  display: block;
+  background-color: #ff2953;
 }
 
 a,
@@ -165,17 +169,22 @@ a:focus {
 .btn,
 .btn:focus {
   outline: none !important;
+  -webkit-box-shadow: none;
   box-shadow: none;
 }
 
 .user_option {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+}
 
-  a {
-    color: $white;
-    margin: 10px 30px;
-  }
+.user_option a {
+  color: #ffffff;
+  margin: 10px 30px;
 }
 
 .custom_nav-container .nav_search-btn {
@@ -190,19 +199,22 @@ a:focus {
 }
 
 .navbar-brand {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   position: relative;
+}
 
-  span {
-    font-size: 22px;
-    text-transform: uppercase;
-    font-weight: bold;
-    color: $white;
-    position: relative;
-    z-index: 3;
-  }
-
+.navbar-brand span {
+  font-size: 22px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #ffffff;
+  position: relative;
+  z-index: 3;
 }
 
 .custom_nav-container {
@@ -225,7 +237,8 @@ a:focus {
   flex: 1;
   display: flex;
   align-items: center;
-  color: $white;
+  color: $primary1; // Color rojo para el texto principal
+  background-color: $black; // Fondo negro
 
   #carouselExampleIndicators {
     width: 100%;
@@ -247,7 +260,7 @@ a:focus {
     h3 {
       text-transform: uppercase;
       font-weight: bold;
-
+      color: $primary1; // Color rojo para los títulos
     }
 
     h2 {
@@ -260,20 +273,17 @@ a:focus {
       letter-spacing: .5rem;
     }
 
-
-
     p {
       margin-top: 25px;
+      color: $black; // Texto en blanco para mejor contraste sobre fondo negro
     }
 
     a {
-      @include hero_btn($white, $black, 8px, 35px, 0px);
+      @include hero_btn($primary1, $black, 8px, 35px, 0px); // Botones con fondo rojo y hover negro
       text-transform: uppercase;
       margin-top: 35px;
     }
   }
-
-
 
   #carouselExampleIndicators {
     .carousel-indicators {
@@ -286,17 +296,18 @@ a:focus {
         width: 14px;
         height: 14px;
         background-color: transparent;
-        border: 2px solid $white;
+        border: 2px solid $primary1; // Borde rojo para los indicadores
         border-radius: 100%;
         opacity: 1;
 
         &.active {
-          border: 4px solid $white;
+          border: 4px solid $primary1; // Indicador activo en rojo
         }
       }
     }
   }
 }
+
 
 // end slider section
 
@@ -461,7 +472,6 @@ a:focus {
   input {
     width: 100%;
     border: none;
-    background-color: $white;
     outline: none;
     color: $black;
     margin-top: 25px;
@@ -490,6 +500,40 @@ a:focus {
 
 // end contact section
 
+/* Estilos para la sección de videos */
+.video_section {
+  padding: 60px 0;
+  background-color: #f8f8f8;
+}
+
+.video_section .heading_container h2 {
+  font-size: 36px;
+  color: #333;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.video_section .video-box {
+  margin-bottom: 30px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.video_section .video-box iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 10px;
+}
+
+@media (min-width: 992px) {
+
+  /* Ajusta la altura de los videos en pantallas grandes */
+  .video_section .video-box iframe {
+    height: 315px;
+  }
+}
 
 
 
@@ -562,6 +606,7 @@ a:focus {
   background-color: #fbfdfd;
   padding: 20px;
   font-weight: 500;
+  margin-top: auto;
 }
 
 .footer_section p {
