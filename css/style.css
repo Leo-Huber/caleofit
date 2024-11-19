@@ -226,6 +226,18 @@ a:focus {
   /* Necesario para manejar el posicionamiento */
 }
 
+.transparent-list {
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco semitransparente */
+    padding: 15px; /* Espaciado interno */
+    border-radius: 10px; /* Bordes redondeados */
+    list-style-type: none; /* Elimina los guiones de la lista */
+    margin: 10px 0 0; /* Espaciado superior para separar del texto anterior */
+}
+
+.transparent-list li {
+    margin: 5px 0; /* Espaciado entre los elementos de la lista */
+}
+
 .slider_section #carouselExampleIndicators {
   width: 100%;
 }
