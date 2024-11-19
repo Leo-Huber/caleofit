@@ -234,7 +234,7 @@ a:focus {
 
 .transparent-list li {
     background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco semitransparente */
-    display: inline-block; /* Ajusta el ancho al contenido */
+    display: block; /* Asegura que cada elemento ocupe toda la línea */
     padding: 5px 10px; /* Espaciado interno para el texto */
     border-radius: 5px; /* Bordes redondeados */
     margin: 5px 0; /* Espaciado entre los elementos de la lista */
